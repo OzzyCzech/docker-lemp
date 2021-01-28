@@ -6,3 +6,15 @@
 * [MariaDB](https://mariadb.org/)
 * [MailHog](https://github.com/mailhog/MailHog)
 * Linux
+
+### Running
+
+```shell
+docker-compose build
+docker-compose up
+```
+
+### Urls
+
+* Website: http://localhost/
+* MailHog UI: http://localhost:8025/

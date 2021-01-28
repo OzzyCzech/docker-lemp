@@ -4,7 +4,6 @@ services:
 
   mariadb:
     image: mariadb:latest
-    container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
@@ -17,7 +16,6 @@ services:
 
   redis:
     image: redis:latest
-    container_name: redis
     volumes:
       - ./data/redis:/data
     ports:
@@ -25,16 +23,14 @@ services:
 
   php:
     build: etc/php
-    container_name: php
     volumes:
       - ./etc/php.ini:/usr/local/etc/php/conf.d/php.ini
       - .:/var/www/html
     ports:
       - 9000
 
-  mailhog:
+  mail:
     image: mailhog/mailhog
-    container_name: mailhog
     logging:
       driver: 'none'  # disable saving logs
     ports:
@@ -43,7 +39,6 @@ services:
 
   web:
     image: nginx:alpine
-    container_name: web
     ports:
       - 80:80
     volumes:
@@ -53,9 +48,9 @@ services:
       - mariadb
       - php
       - redis
-      - mailhog
+      - mail
     depends_on:
       - php
       - mariadb
       - redis
-      - mailhog
+      - mail

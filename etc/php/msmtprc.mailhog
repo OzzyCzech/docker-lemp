@@ -9,7 +9,7 @@ logfile        /var/log/msmtp.log
 account        mailhog
 host           mail
 port           1025
-from           noreply@webdevapp.example
+from           noreply@example.app
 
 # Set a default account
 account default : mailhog
