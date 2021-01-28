@@ -1,0 +1,15 @@
+# Set default values for all following accounts.
+defaults
+auth           off
+tls            off
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        /var/log/msmtp.log
+
+# mailhog service
+account        mailhog
+host           mail
+port           1025
+from           noreply@webdevapp.example
+
+# Set a default account
+account default : mailhog
